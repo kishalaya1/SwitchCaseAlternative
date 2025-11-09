@@ -14,6 +14,29 @@ static void SwitchCaseExample()
     string selectedKey = inputLetter ?? string.Empty;
     OriginalSwitchCase(selectedKey);
 }
+
+#region Switch Case expression
+static void SwitchCaseExpressionExample()
+{
+    Console.WriteLine("Executing a switch-expression Demo");
+    Console.WriteLine("Please enter a letter from A to E in Upper Case: ");
+    string? inputLetter = Console.ReadLine();
+    string selectedKey = inputLetter ?? string.Empty;
+
+    // Use a switch expression to pick the Action to run
+    Action target = selectedKey switch
+    {
+        "A" => CaseA,
+        "B" => CaseB,
+        "C" => CaseC,
+        "D" => CaseD,
+        "E" => CaseE,
+        _ => None
+    };
+
+    target();
+}
+#endregion
 static void OriginalSwitchCase(string caseToExecute)
 {
     Console.WriteLine("Executing a classic switch statement Demo ");
@@ -128,6 +151,11 @@ static void CaseE()
 
 //uncomment this function to run switch case example
 //SwitchCaseExample();
-Default(selectedFuncs, functionMap);
+
+//uncomment this function to run switch case expression example
+SwitchCaseExpressionExample();
+
+//uncomment this function to run switch case alternative example
+//Default(selectedFuncs, functionMap);
 
 #endregion
