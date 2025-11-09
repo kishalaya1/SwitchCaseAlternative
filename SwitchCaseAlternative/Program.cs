@@ -54,7 +54,7 @@ Dictionary<string, (Action Action, string Name)> functionMap = new()
     ["E"] = (CaseE, nameof(CaseE)),
 };
 
-string[] FuncNames = { "CaseA", "CaseB", "CaseC", "CaseD", "CaseE" };
+
 
 Action[] selectedFuncs = {
     CaseA,
@@ -64,23 +64,23 @@ Action[] selectedFuncs = {
     CaseE
 };
 
-static void Default(Action[] selectedFuncs, Dictionary<string, (Action Action, string Name)> functionMap, string[] funcNames)
+static void Default(Action[] selectedFuncs, Dictionary<string, (Action Action, string Name)> functionMap)
 {
-    Console.WriteLine("Please select a no to execute the particualar algorithm example: ");
+    Console.WriteLine("Please select a letter in Upper Case to execute the particular algorithm example: ");
     foreach (var func in functionMap)
     {
         Console.WriteLine($"{func.Key} : {func.Value.Name }");
     }
     string? inputLetter = Console.ReadLine();
-    string selectedKey = inputLetter ?? string.Empty;
-    //var targetFunc = functionMap[selectedKey];
+    string selectedKey = inputLetter ?? string.Empty;    
     if (functionMap.TryGetValue(selectedKey, out var target))
     {
         target.Action();
     }
-    // selectedFuncs[targetFunc];
-    //selectedFuncs[functionMap.TryGetValue(,)]();
-    //targetFunc();
+    else
+    {
+        None();
+    }    
 }
 
 #endregion
@@ -126,7 +126,8 @@ static void CaseE()
 
 #region executable Func
 
+//uncomment this function to run switch case example
 //SwitchCaseExample();
-Default(selectedFuncs, functionMap, FuncNames);
+Default(selectedFuncs, functionMap);
 
 #endregion
