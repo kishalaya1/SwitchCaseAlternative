@@ -153,9 +153,9 @@ static void CaseE()
 //SwitchCaseExample();
 
 //uncomment this function to run switch case expression example
-SwitchCaseExpressionExample();
+//SwitchCaseExpressionExample();
 
 //uncomment this function to run switch case alternative example
-//Default(selectedFuncs, functionMap);
+Default(selectedFuncs, functionMap);
 
 #endregion
