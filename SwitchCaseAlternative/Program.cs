@@ -77,17 +77,7 @@ Dictionary<string, (Action Action, string Name)> functionMap = new()
     ["E"] = (CaseE, nameof(CaseE)),
 };
 
-
-
-Action[] selectedFuncs = {
-    CaseA,
-    CaseB,
-    CaseC,
-    CaseD,
-    CaseE
-};
-
-static void Default(Action[] selectedFuncs, Dictionary<string, (Action Action, string Name)> functionMap)
+static void Default(Dictionary<string, (Action Action, string Name)> functionMap)
 {
     Console.WriteLine("Please select a letter in Upper Case to execute the particular algorithm example: ");
     foreach (var func in functionMap)
@@ -156,6 +146,6 @@ static void CaseE()
 //SwitchCaseExpressionExample();
 
 //uncomment this function to run switch case alternative example
-Default(selectedFuncs, functionMap);
+Default(functionMap);
 
 #endregion
